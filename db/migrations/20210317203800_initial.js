@@ -23,4 +23,8 @@ exports.up = function(knex, Promise) {
 
 exports.down = function(knex, Promise) {
   // roll back prev version, undo up
+  return Promise.all([
+    knex.schema.dropTable('footnotes'),
+    knex.schema.dropTable('papers')
+  ])
 }
