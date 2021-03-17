@@ -6,6 +6,10 @@ exports.up = function(knex, Promise) {
   ])
 }
 
-exports.down = function(knex) {
-  
-};
+exports.down = function(knex, Promise) {
+  return Promise.all([
+    knex.schema.table('papers', function(table) {
+      table.string('publisher')
+    })
+  ])
+}
