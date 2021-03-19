@@ -1,4 +1,4 @@
-exports.up = function(knex, Promise) {
+exports.up = function(knex) {
   // what should happen run migration
   return Promise.all([
     knex.schema.createTable('papers', function(table) {
@@ -21,7 +21,7 @@ exports.up = function(knex, Promise) {
   ])
 }
 
-exports.down = function(knex, Promise) {
+exports.down = function(knex) {
   // roll back prev version, undo up
   return Promise.all([
     knex.schema.dropTable('footnotes'),
